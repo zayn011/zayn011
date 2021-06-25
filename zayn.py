@@ -1,51 +1,43 @@
 import asyncio
-import os
-import urllib
 
-import requests
-
-from userbot import *
-from mafiabot.utils import *
+from mafiabot.utils import admin_cmd, sudo_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 
-@bot.on(admin_cmd("zayn$"))
-@bot.on(sudo_cmd(pattern="zayn$", allow_sudo=True))
-async def boobs(event):
+
+@bot.on(admin_cmd(pattern=r"zayn$", outgoing=True))
+@bot.on(sudo_cmd(pattern=r"zayn$", allow_sudo=True))
+async def _(event):
     if event.fwd_from:
         return
-    if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
-    pic_loc = os.path.join(Var.TEMP_DOWNLOAD_DIRECTORY, "bobs.jpg")
-    a = await event.reply("Z")
-    await asyncio.sleep(0.9)
-    await a.edit("A")
-     await asyncio.sleep(0.9)
-    await a.edit("Y")
-     await asyncio.sleep(0.9)
-    await a.edit("N")
-    
-@bot.on(admin_cmd("anisha$"))
-@bot.on(sudo_cmd(pattern="anisha$", allow_sudo=True))
-async def butts(event):
+    animation_interval = 1
+    animation_ttl = range(0, 21)
+    animation_chars = [
+        "`Z `",
+        "`ZA`",
+        "`ZAY`",
+        "`ZAYN`",
+        ]
+
+    for i in animation_ttl:
+        await asyncio.sleep(animation_interval)
+        await event.edit(animation_chars[i % 21])
+
+@bot.on(admin_cmd(pattern=r"anisha$", outgoing=True))
+@bot.on(sudo_cmd(pattern=r"anisha$", allow_sudo=True))
+async def _(event):
     if event.fwd_from:
         return
-    if not os.path.isdir(Var.TEMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Var.TEMP_DOWNLOAD_DIRECTORY)
-    pic_loc = os.path.join(Var.TEMP_DOWNLOAD_DIRECTORY, "butts.jpg")
-    a = await event.reply("A")
-    await asyncio.sleep(0.9)
-    await a.edit("N")
-     await asyncio.sleep(0.9)
-    await a.edit("I")
-     await asyncio.sleep(0.9)
-    await a.edit("S")
-     await asyncio.sleep(0.9)
-    await a.edit("H")
-     await asyncio.sleep(0.9)
-    await a.edit("A")
- 
-CmdHelp("zayn").add_command(
-  'zayn', None, 'Sends a random boobs pic'
-).add_command(
-  'anisha', None, 'Sends a random Butt pic'
-).add()
+    animation_interval = 1
+    animation_ttl = range(0, 21)
+    animation_chars = [
+        "`A `",
+        "`AN`",
+        "`ANI`",
+        "`ANIS`",
+        "`ANISH `",
+        "`ANISHA`",
+        ]
+
+    for i in animation_ttl:
+        await asyncio.sleep(animation_interval)
+        await event.edit(animation_chars[i % 21])
